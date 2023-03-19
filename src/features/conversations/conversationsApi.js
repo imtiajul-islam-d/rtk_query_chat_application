@@ -1,5 +1,5 @@
 import { apiSlice } from "../api/apiSlice";
 
-export const authApi = apiSlice.injectEndpoints({
+export const conversationsApi = apiSlice.injectEndpoints({
   endpoints: (builder) => {},
 });
