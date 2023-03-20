@@ -11,4 +11,7 @@ export const store = configureStore({
     conversations: conversationsReducer,
     messages: messagesReducer,
   },
+  devTools: process.env.NODE_ENV !== "production",
+  middleware: (getDefaultMiddlewares) =>
+    getDefaultMiddlewares().concat(apiSlice.middleware),
 });
