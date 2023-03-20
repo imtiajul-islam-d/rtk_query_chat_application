@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import lws_logo from "./../../assets/lws-logo-light.svg";
 
 const Login = () => {
   return (
@@ -9,7 +11,7 @@ const Login = () => {
             <div>
               <img
                 className="mx-auto h-12 w-auto"
-                src="./assets/lws-logo-light.svg"
+                src={lws_logo}
                 alt="Learn with sumit"
               />
               <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -69,6 +71,9 @@ const Login = () => {
                 </button>
               </div>
             </form>
+            <Link className="mt-2 text-sm text-blue-700" to="/register">
+              Create new account...
+            </Link>
           </div>
         </div>
       </div>

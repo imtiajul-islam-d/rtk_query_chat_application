@@ -1,4 +1,5 @@
 import React from "react";
+import Inbox from "../Inbox/Inbox";
 
 const Chat = () => {
   return (
@@ -7,7 +8,10 @@ const Chat = () => {
         <div className="min-w-full border rounded flex lg:grid lg:grid-cols-3">
           <div className="w-[100px] border-r border-t-0 border-gray-300 lg:col-span-1 md:w-full">
             <div className="h-[65px] text-center text-grey-500 p-4 border-b border-gray-300 flex md:justify-end justify-center">
-              <svg viewBox="0 0 194.436 194.436" className="w-5 h-5 text-grey-500">
+              <svg
+                viewBox="0 0 194.436 194.436"
+                className="w-5 h-5 text-grey-500"
+              >
                 <path
                   d="M192.238,34.545L159.894,2.197C158.487,0.79,156.579,0,154.59,0c-1.989,0-3.897,0.79-5.303,2.196l-32.35,32.35
                         c-0.004,0.004-0.008,0.01-0.013,0.014L54.876,96.608c-1.351,1.352-2.135,3.166-2.193,5.076l-1.015,33.361
@@ -40,7 +44,9 @@ const Chat = () => {
                         25 minutes
                       </span>
                     </div>
-                    <span className="block ml-2 text-sm text-gray-600">bye</span>
+                    <span className="block ml-2 text-sm text-gray-600">
+                      bye
+                    </span>
                   </div>
                 </a>
                 <a className="flex items-center px-3 py-2 text-sm transition duration-150 ease-in-out bg-gray-100 border-b border-gray-300 cursor-pointer focus:outline-none">
@@ -99,29 +105,14 @@ const Chat = () => {
               </div>
               <div className="relative w-full p-6 overflow-y-auto">
                 <ul className="space-y-2">
-                  <li className="flex justify-start">
-                    <div className="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
-                      <span className="block">Hi</span>
-                    </div>
-                  </li>
-                  <li className="flex justify-end">
-                    <div className="relative max-w-xl px-4 py-2 text-gray-700 bg-gray-100 rounded shadow">
-                      <span className="block">Hiiii</span>
-                    </div>
-                  </li>
-                  <li className="flex justify-end">
-                    <div className="relative max-w-xl px-4 py-2 text-gray-700 bg-gray-100 rounded shadow">
-                      <span className="block">how are you?</span>
-                    </div>
-                  </li>
-                  <li className="flex justify-start">
-                    <div className="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
-                      <span className="block">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit.
-                      </span>
-                    </div>
-                  </li>
+                  {/* inbox */}
+                  <Inbox />
+                  <Inbox />
+                  <Inbox />
+                  <Inbox />
+                  <Inbox />
+                  <Inbox />
+                  <Inbox />
                 </ul>
               </div>
 
