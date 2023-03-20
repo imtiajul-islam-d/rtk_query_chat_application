@@ -1,15 +1,62 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useRegisterMutation } from "../../features/auth/authApi";
 import lws_logo from "./../../assets/lws-logo-light.svg";
 
 const Registration = () => {
+  const navigate = useNavigate();
+  const [register, { isSuccess, isLoading, error, isError }] =
+    useRegisterMutation();
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
     agree: false,
+    error: "",
   });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setForm({
+      ...form,
+      error: "",
+    });
+    if (form.password !== form.confirmPassword) {
+      setForm({
+        ...form,
+        error: "Password did not matched!!",
+      });
+    } else {
+      register({
+        name: form.name,
+        email: form.email,
+        password: form.password,
+      });
+    }
+  };
+  useEffect(() => {
+    if (isSuccess) {
+      setForm({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        agree: false,
+        error: "",
+      });
+      navigate("/inbox");
+    }
+  }, [isSuccess]);
+  useEffect(() => {
+    if (isError) {
+      setForm({
+        ...form,
+        error: error.data,
+      });
+    }
+  }, [error, isError]);
+
   return (
     <>
       <div className="grid place-items-center h-screen bg-[#F9FAFB">
@@ -25,7 +72,12 @@ const Registration = () => {
                 Create your account
               </h2>
             </div>
-            <form className="mt-8 space-y-6" action="#" method="POST">
+            <form
+              onSubmit={handleSubmit}
+              className="mt-8 space-y-6"
+              action="#"
+              method="POST"
+            >
               <input type="hidden" name="remember" value="true" />
               <div className="rounded-md shadow-sm -space-y-px">
                 <div>
@@ -101,7 +153,7 @@ const Registration = () => {
                   <input
                     id="confirmPassword"
                     name="confirmPassword"
-                    type="confirmPassword"
+                    type="password"
                     autocomplete="current-confirmPassword"
                     required
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
@@ -120,6 +172,7 @@ const Registration = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <input
+                    required
                     id="remember-me"
                     name="remember-me"
                     type="checkbox"
@@ -143,6 +196,7 @@ const Registration = () => {
 
               <div>
                 <button
+                  disabled={isLoading}
                   type="submit"
                   className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500"
                 >
@@ -150,6 +204,9 @@ const Registration = () => {
                   Sign up
                 </button>
               </div>
+              {form?.error !== "" && (
+                <p className="mt-3 text-red-600">{form?.error}</p>
+              )}
             </form>
             <Link className="mt-2 text-sm text-blue-700" to="/">
               Already have an account...
