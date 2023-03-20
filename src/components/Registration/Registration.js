@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import lws_logo from "./../../assets/lws-logo-light.svg";
 
 const Registration = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    agree: false,
+  });
   return (
     <>
       <div className="grid place-items-center h-screen bg-[#F9FAFB">
@@ -33,6 +40,13 @@ const Registration = () => {
                     required
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
                     placeholder="Name"
+                    value={form?.name}
+                    onChange={(e) =>
+                      setForm({
+                        ...form,
+                        name: e.target.value,
+                      })
+                    }
                   />
                 </div>
 
@@ -48,6 +62,13 @@ const Registration = () => {
                     required
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
                     placeholder="Email address"
+                    value={form?.email}
+                    onChange={(e) =>
+                      setForm({
+                        ...form,
+                        email: e.target.value,
+                      })
+                    }
                   />
                 </div>
 
@@ -63,6 +84,13 @@ const Registration = () => {
                     required
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
                     placeholder="Password"
+                    value={form?.password}
+                    onChange={(e) =>
+                      setForm({
+                        ...form,
+                        password: e.target.value,
+                      })
+                    }
                   />
                 </div>
 
@@ -78,6 +106,13 @@ const Registration = () => {
                     required
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
                     placeholder="confirmPassword"
+                    value={form?.confirmPassword}
+                    onChange={(e) =>
+                      setForm({
+                        ...form,
+                        confirmPassword: e.target.value,
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -89,6 +124,13 @@ const Registration = () => {
                     name="remember-me"
                     type="checkbox"
                     className="h-4 w-4 text-violet-600 focus:ring-violet-500 border-gray-300 rounded"
+                    checked={form?.agree}
+                    onChange={(e) =>
+                      setForm({
+                        ...form,
+                        agree: !form.agree,
+                      })
+                    }
                   />
                   <label
                     for="accept-terms"
