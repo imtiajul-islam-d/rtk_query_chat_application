@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "email": "sumit@learnwithsumit.com",
-      "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
-      "name": "Sumit Saha",
-      "id": 1
-    },
-    {
       "email": "akash@learnwithsumit.com",
       "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
       "name": "Akash Ahmed",
@@ -53,6 +47,12 @@
       "password": "$2a$10$DCRl3gK/t3wGP5GeN9fW3utTUApEqowufpZDt3RN67v.ay1xtCyPC",
       "name": "Md. Imtiazul Islam",
       "id": 9
+    },
+    {
+      "email": "sumit@learnwithsumit.com",
+      "password": "$2a$10$56qYxzOaqcy.rXEPsI5KNe/S2qOU3b9OtmgFPak27LQC9hsEsWzji",
+      "name": "Sumit Saha",
+      "id": 10
     }
   ],
   "conversations": [
