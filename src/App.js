@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Chat from "./components/Chat/Chat";
+import SpecificChat from "./components/Chat/SpecificChat";
 import Inbox from "./components/Inbox/Inbox";
 import Login from "./components/Login/Login";
 import Nav from "./components/Nav/Nav";
@@ -48,7 +49,7 @@ function App() {
             path="/inbox/:id"
             element={
               <PrivetRoute>
-                <Inbox />
+                <SpecificChat />
               </PrivetRoute>
             }
           />

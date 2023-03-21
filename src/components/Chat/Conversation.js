@@ -2,6 +2,7 @@ import React from "react";
 import moment from "moment";
 import partnersEmail from "../../utils/partnersEmail";
 import gravatarUrl from "gravatar-url";
+import { Link } from "react-router-dom";
 
 const Conversation = ({ conv }) => {
   const { id, message, timestamp, participants, users } = conv || {};
@@ -10,7 +11,10 @@ const Conversation = ({ conv }) => {
 
   return (
     <>
-      <a className="flex items-center px-3 py-2 text-sm transition duration-150 ease-in-out border-b border-gray-300 cursor-pointer hover:bg-gray-100 focus:outline-none">
+      <Link
+        to={`/inbox/${id}`}
+        className="flex items-center px-3 py-2 text-sm transition duration-150 ease-in-out border-b border-gray-300 cursor-pointer hover:bg-gray-100 focus:outline-none"
+      >
         <img
           className="object-cover w-10 h-10 rounded-full"
           src={gravatarUrl(email, {
@@ -29,7 +33,7 @@ const Conversation = ({ conv }) => {
           </div>
           <span className="block ml-2 text-sm text-gray-600">{message}</span>
         </div>
-      </a>
+      </Link>
     </>
   );
 };

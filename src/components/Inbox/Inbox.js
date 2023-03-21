@@ -1,18 +1,13 @@
 import React from "react";
 
-const Inbox = () => {
+const Inbox = ({ message, justify }) => {
   return (
     <>
-      <li className="flex justify-start">
+      <li className={`flex ${justify}`}>
         <div className="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
-          <span className="block">Hi</span>
+          <span className="block">{message}</span>
         </div>
       </li>
-      {/* <li className="flex justify-end">
-        <div className="relative max-w-xl px-4 py-2 text-gray-700 bg-gray-100 rounded shadow">
-          <span className="block">Hiiii</span>
-        </div>
-      </li> */}
     </>
   );
 };
