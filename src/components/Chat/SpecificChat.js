@@ -17,7 +17,7 @@ const SpecificChat = () => {
   if (!isLoading && !isError && messages?.length >= 0) {
     content = (
       <div className="w-full grid conversation-row-grid">
-        <MessagePerson />
+        <MessagePerson message={messages[0]} />
         <InboxContainer messages={messages} />
         <MessageForm />
       </div>
