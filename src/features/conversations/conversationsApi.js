@@ -6,6 +6,10 @@ export const conversationsApi = apiSlice.injectEndpoints({
       query: (email) =>
         `/conversations?participants_like=${email}&_sort=timestamp&_order=desc&_page=1&_limit=${process.env.REACT_APP_CONVERSATIONS_PER_PAGE}`,
     }),
+    getConversation: builder.query({
+      query: ({ email, participantEmail }) =>
+        `/conversations?participants_like=${email}-${participantEmail}&&participants_like=${participantEmail}-${email}`,
+    }),
   }),
 });
 
