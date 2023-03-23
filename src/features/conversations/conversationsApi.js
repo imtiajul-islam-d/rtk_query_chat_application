@@ -18,24 +18,41 @@ export const conversationsApi = apiSlice.injectEndpoints({
         body: data,
       }),
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
-        const conversation = await queryFulfilled;
-        if (conversation?.data?.id) {
-          const users = arg.data.users;
-          const senderEmail = arg.sender;
-          const senderData = users?.find((user) => user?.email === senderEmail);
-          const receiverData = users?.find(
-            (user) => user?.email !== senderEmail
-          );
-          console.log(arg);
-          dispatch(
-            messagesApi.endpoints.addMessage.initiate({
-              conversationId: conversation?.data?.id,
-              sender: senderData,
-              receiver: receiverData,
-              message: arg.data.message,
-              timestamp: arg.data.timestamp,
-            })
-          );
+        // optimistic update start
+        const addResult1 = dispatch(
+          apiSlice.util.updateQueryData(
+            "getConversations",
+            arg.sender,
+            (draft) => {
+              draft.unshift(arg.data);
+            }
+          )
+        );
+        // optimistic update end
+        try {
+          const conversation = await queryFulfilled;
+          if (conversation?.data?.id) {
+            const users = arg.data.users;
+            const senderEmail = arg.sender;
+            const senderData = users?.find(
+              (user) => user?.email === senderEmail
+            );
+            const receiverData = users?.find(
+              (user) => user?.email !== senderEmail
+            );
+            console.log(arg);
+            dispatch(
+              messagesApi.endpoints.addMessage.initiate({
+                conversationId: conversation?.data?.id,
+                sender: senderData,
+                receiver: receiverData,
+                message: arg.data.message,
+                timestamp: arg.data.timestamp,
+              })
+            );
+          }
+        } catch (error) {
+          addResult1.undo();
         }
       },
     }),
@@ -81,7 +98,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
             );
           }
         } catch (error) {
-          patchResult1.undo()
+          patchResult1.undo();
         }
       },
     }),
