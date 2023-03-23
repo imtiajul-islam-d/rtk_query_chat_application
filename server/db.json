@@ -73,6 +73,25 @@
       ],
       "message": "How are you?",
       "timestamp": 1661976143678
+    },
+    {
+      "participants": "sumit@learnwithsumit.com-test@gmail.com",
+      "users": [
+        {
+          "email": "sumit@learnwithsumit.com",
+          "name": "Sumit Saha",
+          "id": 10
+        },
+        {
+          "email": "test@gmail.com",
+          "password": "$2a$10$DCRl3gK/t3wGP5GeN9fW3utTUApEqowufpZDt3RN67v.ay1xtCyPC",
+          "name": "Md. Imtiazul Islam",
+          "id": 9
+        }
+      ],
+      "message": "This is updated message",
+      "timestamp": 1679566201387,
+      "id": 2
     }
   ],
   "messages": [
