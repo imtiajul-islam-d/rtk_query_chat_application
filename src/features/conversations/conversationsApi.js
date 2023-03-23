@@ -41,7 +41,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
               (user) => user?.email !== senderEmail
             );
             console.log(arg);
-            dispatch(
+            const res = await dispatch(
               messagesApi.endpoints.addMessage.initiate({
                 conversationId: conversation?.data?.id,
                 sender: senderData,
@@ -49,7 +49,18 @@ export const conversationsApi = apiSlice.injectEndpoints({
                 message: arg.data.message,
                 timestamp: arg.data.timestamp,
               })
+            ).unwrap();
+            // update message pessimistically start
+            dispatch(
+              apiSlice.util.updateQueryData(
+                "getMessages",
+                res.conversationId.toString(),
+                (draft) => {
+                  draft.unshift(res);
+                }
+              )
             );
+            // update message pessimistically end
           }
         } catch (error) {
           addResult1.undo();
@@ -87,7 +98,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
             const receiverData = users?.find(
               (user) => user?.email !== senderEmail
             );
-            dispatch(
+            const res = await dispatch(
               messagesApi.endpoints.addMessage.initiate({
                 conversationId: conversation?.data?.id,
                 sender: senderData,
@@ -95,7 +106,18 @@ export const conversationsApi = apiSlice.injectEndpoints({
                 message: arg.data.message,
                 timestamp: arg.data.timestamp,
               })
+            ).unwrap();
+            // update message pessimistically start
+            dispatch(
+              apiSlice.util.updateQueryData(
+                "getMessages",
+                res.conversationId.toString(),
+                (draft) => {
+                  draft.push(res);
+                }
+              )
             );
+            // update message pessimistically end
           }
         } catch (error) {
           patchResult1.undo();
