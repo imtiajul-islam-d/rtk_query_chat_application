@@ -65,6 +65,7 @@ export default function Modal({ open, control }) {
     if (conversation?.length > 0) {
       // edit
       editConversation({
+        sender: myEmail,
         id: conversation[0]?.id,
         data: {
           participants: `${myEmail}-${isUserAvailable[0]?.email}`,
@@ -77,14 +78,22 @@ export default function Modal({ open, control }) {
     if (conversation?.length === 0) {
       // add
       addConversation({
-        participants: `${myEmail}-${isUserAvailable[0]?.email}`,
-        users: [loggedInUser, isUserAvailable[0]],
-        message,
-        timestamp: new Date().getTime(),
+        sender: myEmail,
+        data: {
+          participants: `${myEmail}-${isUserAvailable[0]?.email}`,
+          users: [loggedInUser, isUserAvailable[0]],
+          message,
+          timestamp: new Date().getTime(),
+        },
       });
     }
     console.log("object");
   };
+  useEffect(() => {
+    if (isAddConversationSuccess || isEditConversationSuccess) {
+      control();
+    }
+  }, [isAddConversationSuccess, isEditConversationSuccess]);
   return (
     open && (
       <>

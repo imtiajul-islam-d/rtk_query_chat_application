@@ -5,7 +5,6 @@ import InboxContainer from "../InboxContainer/InboxContainer";
 import MessageForm from "../MessageForm/MessageForm";
 import MessagePerson from "../MessagePerson/MessagePerson";
 import Sidebar from "../Sidebar/Sidebar";
-import ConversationsHolder from "./ConversationsHolder";
 
 const SpecificChat = () => {
   const { id } = useParams();
@@ -20,7 +19,7 @@ const SpecificChat = () => {
       <div className="w-full grid conversation-row-grid">
         <MessagePerson message={messages[0]} />
         <InboxContainer messages={messages} />
-        <MessageForm />
+        <MessageForm message={{message: messages[0], id}} />
       </div>
     );
   }
