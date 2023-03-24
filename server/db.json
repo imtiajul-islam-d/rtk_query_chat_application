@@ -1,78 +1,42 @@
 {
   "users": [
     {
+      "email": "sumit@learnwithsumit.com",
+      "password": "$2a$10$tGMlJhQmAnx7f4cIVY55FOtIRV91wjRwBhdpaANPoslku3P/aAjPK",
+      "name": "Sumit Saha",
+      "id": 1
+    },
+    {
       "email": "akash@learnwithsumit.com",
-      "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
+      "password": "$2a$10$Oc6jXnK6/pbSqmkngo/b.OhsU3JRf4OU1h9QwIoqz8ZUpG/hgHq72",
       "name": "Akash Ahmed",
       "id": 2
     },
     {
       "email": "saad@learnwithsumit.com",
-      "password": "$2a$10$CtHS.yCGS80jiuZx8yKEI.5zdiZykHF/6aPTDqpHl6ZqEFGISOHKO",
+      "password": "$2a$10$DVGOgchZrtvb1w6Pj.B0D.DXmHmoTsdy3oXfwF.02kE/pzJ7jyHqy",
       "name": "Saad Hasan",
       "id": 3
-    },
-    {
-      "email": "imtiajul37@gmail.com",
-      "password": "$2a$10$b3iZOgKAHOVfJRft.T/v7uEXwgohElMail03mTSeLc1WU3gaUW82S",
-      "name": "Emi",
-      "id": 4
-    },
-    {
-      "email": "imtiajul3@gmail.com",
-      "password": "$2a$10$ymGtjlamKSGVCvnXqXEGmu/4QjXm4y9VY8Dsom/YwkPPjKsF4MTE6",
-      "name": "Md. Imtiazul Islam",
-      "id": 5
-    },
-    {
-      "email": "imtiajul7@gmail.com",
-      "password": "$2a$10$SUVb8ULlQDunDfekmEw9kuOZeGwl33OS8QqrHy8NSbwJ4gmukzrT.",
-      "name": "Md. Imtiazul Islam",
-      "id": 6
-    },
-    {
-      "email": "imtiajul@gmail.com",
-      "password": "$2a$10$y6e0fhcv0e6HrymwTtWtzehZ0lIzWVYQZUgx.BbLCePYJgtK6qwxW",
-      "name": "Md. Imtiazul Islam",
-      "id": 7
-    },
-    {
-      "email": "imtiajul00@gmail.com",
-      "password": "$2a$10$7f1gsX78xJ4zQ1xUSVd6q.jAkHibAWPbu1FxQX8WHcq9/HDLWtFL6",
-      "name": "Md. Imtiazul Islam",
-      "id": 8
-    },
-    {
-      "email": "test@gmail.com",
-      "password": "$2a$10$DCRl3gK/t3wGP5GeN9fW3utTUApEqowufpZDt3RN67v.ay1xtCyPC",
-      "name": "Md. Imtiazul Islam",
-      "id": 9
-    },
-    {
-      "email": "sumit@learnwithsumit.com",
-      "password": "$2a$10$56qYxzOaqcy.rXEPsI5KNe/S2qOU3b9OtmgFPak27LQC9hsEsWzji",
-      "name": "Sumit Saha",
-      "id": 10
     }
   ],
   "conversations": [
     {
-      "participants": "test@gmail.com-sumit@learnwithsumit.com",
+      "participants": "sumit@learnwithsumit.com-saad@learnwithsumit.com",
       "users": [
         {
-          "email": "test@gmail.com",
-          "name": "Md. Imtiazul Islam",
-          "id": 9
+          "email": "sumit@learnwithsumit.com",
+          "name": "Sumit Saha",
+          "id": 1
         },
         {
-          "email": "sumit@learnwithsumit.com",
-          "password": "$2a$10$56qYxzOaqcy.rXEPsI5KNe/S2qOU3b9OtmgFPak27LQC9hsEsWzji",
-          "name": "Sumit Saha",
-          "id": 10
+          "email": "saad@learnwithsumit.com",
+          "password": "$2a$10$DVGOgchZrtvb1w6Pj.B0D.DXmHmoTsdy3oXfwF.02kE/pzJ7jyHqy",
+          "name": "Saad Hasan",
+          "id": 3
         }
       ],
-      "message": "hello sir",
-      "timestamp": 1679590043481,
+      "message": "Hello world Redux Bangladesh",
+      "timestamp": 1662631986753,
       "id": 1
     }
   ],
@@ -80,19 +44,121 @@
     {
       "conversationId": 1,
       "sender": {
-        "email": "test@gmail.com",
-        "name": "Md. Imtiazul Islam",
-        "id": 9
+        "email": "sumit@learnwithsumit.com",
+        "name": "Sumit Saha",
+        "id": 1
       },
       "receiver": {
-        "email": "sumit@learnwithsumit.com",
-        "password": "$2a$10$56qYxzOaqcy.rXEPsI5KNe/S2qOU3b9OtmgFPak27LQC9hsEsWzji",
-        "name": "Sumit Saha",
-        "id": 10
+        "email": "saad@learnwithsumit.com",
+        "password": "$2a$10$DVGOgchZrtvb1w6Pj.B0D.DXmHmoTsdy3oXfwF.02kE/pzJ7jyHqy",
+        "name": "Saad Hasan",
+        "id": 3
       },
-      "message": "hello sir",
-      "timestamp": 1679590043481,
+      "message": "Hello",
+      "timestamp": 1662628206226,
       "id": 1
+    },
+    {
+      "conversationId": 1,
+      "sender": {
+        "email": "sumit@learnwithsumit.com",
+        "name": "Sumit Saha",
+        "id": 1
+      },
+      "receiver": {
+        "email": "saad@learnwithsumit.com",
+        "password": "$2a$10$DVGOgchZrtvb1w6Pj.B0D.DXmHmoTsdy3oXfwF.02kE/pzJ7jyHqy",
+        "name": "Saad Hasan",
+        "id": 3
+      },
+      "message": "Bye",
+      "timestamp": 1662628224667,
+      "id": 2
+    },
+    {
+      "conversationId": 1,
+      "sender": {
+        "email": "sumit@learnwithsumit.com",
+        "name": "Sumit Saha",
+        "id": 1
+      },
+      "receiver": {
+        "email": "saad@learnwithsumit.com",
+        "password": "$2a$10$DVGOgchZrtvb1w6Pj.B0D.DXmHmoTsdy3oXfwF.02kE/pzJ7jyHqy",
+        "name": "Saad Hasan",
+        "id": 3
+      },
+      "message": "Hello hi bye bye",
+      "timestamp": 1662631611651,
+      "id": 3
+    },
+    {
+      "conversationId": 1,
+      "sender": {
+        "email": "sumit@learnwithsumit.com",
+        "name": "Sumit Saha",
+        "id": 1
+      },
+      "receiver": {
+        "email": "saad@learnwithsumit.com",
+        "password": "$2a$10$DVGOgchZrtvb1w6Pj.B0D.DXmHmoTsdy3oXfwF.02kE/pzJ7jyHqy",
+        "name": "Saad Hasan",
+        "id": 3
+      },
+      "message": "Hello",
+      "timestamp": 1662631817658,
+      "id": 4
+    },
+    {
+      "conversationId": 1,
+      "sender": {
+        "email": "sumit@learnwithsumit.com",
+        "name": "Sumit Saha",
+        "id": 1
+      },
+      "receiver": {
+        "email": "saad@learnwithsumit.com",
+        "password": "$2a$10$DVGOgchZrtvb1w6Pj.B0D.DXmHmoTsdy3oXfwF.02kE/pzJ7jyHqy",
+        "name": "Saad Hasan",
+        "id": 3
+      },
+      "message": "test",
+      "timestamp": 1662631825864,
+      "id": 5
+    },
+    {
+      "conversationId": 1,
+      "sender": {
+        "email": "sumit@learnwithsumit.com",
+        "name": "Sumit Saha",
+        "id": 1
+      },
+      "receiver": {
+        "email": "saad@learnwithsumit.com",
+        "password": "$2a$10$DVGOgchZrtvb1w6Pj.B0D.DXmHmoTsdy3oXfwF.02kE/pzJ7jyHqy",
+        "name": "Saad Hasan",
+        "id": 3
+      },
+      "message": "Lorem ipsum dolor sit amet ... hello world Bangladesh",
+      "timestamp": 1662631959796,
+      "id": 6
+    },
+    {
+      "conversationId": 1,
+      "sender": {
+        "email": "sumit@learnwithsumit.com",
+        "name": "Sumit Saha",
+        "id": 1
+      },
+      "receiver": {
+        "email": "saad@learnwithsumit.com",
+        "password": "$2a$10$DVGOgchZrtvb1w6Pj.B0D.DXmHmoTsdy3oXfwF.02kE/pzJ7jyHqy",
+        "name": "Saad Hasan",
+        "id": 3
+      },
+      "message": "Hello world Redux Bangladesh",
+      "timestamp": 1662631986753,
+      "id": 7
     }
   ]
 }
