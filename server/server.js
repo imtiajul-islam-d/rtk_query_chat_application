@@ -10,6 +10,21 @@ const io = require("socket.io")(server);
 global.io = io;
 
 const router = jsonServer.router("db.json");
+// common middleware
+router.render = (req, res) => {
+  const path = req.path;
+  const method = req.method;
+  if (
+    path.includes("/conversations") &&
+    (method === "PATCH" || method === "POST")
+  ){
+    io.emit("conversation", {
+        data: res.locals.data
+    })
+  }
+    res.json(res.locals.data);
+};
+
 const middlewares = jsonServer.defaults();
 const port = process.env.PORT || 9000;
 
@@ -19,9 +34,9 @@ app.db = router.db;
 app.use(middlewares);
 
 const rules = auth.rewriter({
-    users: 640,
-    conversations: 660,
-    messages: 660,
+  users: 640,
+  conversations: 660,
+  messages: 660,
 });
 
 app.use(rules);

@@ -23,6 +23,8 @@ const MessageForm = ({ message: passedMessage }) => {
         timestamp: new Date().getTime(),
       },
     });
+    setMessage("");
+    e.target.reset();
   };
 
   return (
@@ -53,6 +55,7 @@ const MessageForm = ({ message: passedMessage }) => {
           className="block w-full py-2 pl-4 mx-3 bg-gray-100 focus:ring focus:ring-violet-500 rounded-full outline-none focus:text-gray-700"
           name="message"
           required
+          value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
         <button type="submit">
