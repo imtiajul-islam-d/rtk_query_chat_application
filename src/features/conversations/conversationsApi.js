@@ -7,6 +7,13 @@ export const conversationsApi = apiSlice.injectEndpoints({
     getConversations: builder.query({
       query: (email) =>
         `/conversations?participants_like=${email}&_sort=timestamp&_order=desc&_page=1&_limit=${process.env.REACT_APP_CONVERSATIONS_PER_PAGE}`,
+        transformResponse(apiResponse, meta) {
+          const totalCount = meta.response.headers.get("X-Total-Count");
+          return {
+              data: apiResponse,
+              totalCount,
+          };
+      },
       // socket.io start
       async onCacheEntryAdded(
         arg,
@@ -44,14 +51,17 @@ export const conversationsApi = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
           const conversations = await queryFulfilled;
-          if (conversations?.length > 0) {
+          if (conversations?.data?.length > 0) {
             // update message pessimistically start
             dispatch(
               apiSlice.util.updateQueryData(
                 "getConversations",
                 arg.email,
                 (draft) => {
-                  return [...draft, ...conversations];
+                  return {
+                    data: [...draft.data, ...conversations.data],
+                    totalCount: Number(draft.totalCount)
+                  };
                 }
               )
             );
@@ -132,7 +142,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
             "getConversations",
             arg.sender,
             (draft) => {
-              const draftConversation = draft.find((c) => c.id == arg.id);
+              const draftConversation = draft.data.find((c) => c.id == arg.id);
               draftConversation.message = arg.data.message;
               draftConversation.timestamp = arg.data.timestamp;
             }
