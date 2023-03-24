@@ -17,12 +17,18 @@ router.render = (req, res) => {
   if (
     path.includes("/conversations") &&
     (method === "PATCH" || method === "POST")
-  ){
+  ) {
     io.emit("conversation", {
-        data: res.locals.data
-    })
+      data: res.locals.data,
+    });
   }
-    res.json(res.locals.data);
+  //   for messages route
+  if (path.includes("/messages") && method === "POST") {
+    io.emit("message", {
+      data: res.locals.data,
+    });
+  }
+  res.json(res.locals.data);
 };
 
 const middlewares = jsonServer.defaults();
