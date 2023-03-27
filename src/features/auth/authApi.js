@@ -3,6 +3,7 @@ import { userLoggedIn } from "./authSlice";
 
 export const authApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    // registration route
     register: builder.mutation({
       query: (data) => ({
         url: "/register",
@@ -28,6 +29,7 @@ export const authApi = apiSlice.injectEndpoints({
         } catch (error) {}
       },
     }),
+    // login route
     login: builder.mutation({
       query: (data) => ({
         url: "/login",
